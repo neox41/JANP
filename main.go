@@ -119,7 +119,7 @@ func main() {
 
 	if strings.EqualFold(format, "html") {
 		fileName := outputFile + ".html"
-		fH, err := os.Create(fileName + ".html")
+		fH, err := os.Create(fileName)
 		check(err)
 		defer fH.Close()
 		preHtml = `
