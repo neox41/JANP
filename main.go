@@ -119,7 +119,7 @@ func main() {
 
 	if strings.EqualFold(format, "html") {
 		fileName := outputFile + ".html"
-		fH, err := os.Create(fileName + ".html")
+		fH, err := os.Create(fileName)
 		check(err)
 		defer fH.Close()
 		preHtml = `
@@ -168,6 +168,7 @@ func main() {
 		fC, err := os.Create(fileName)
 		check(err)
 		defer fC.Close()
+		csv = "Ip,Hostname,Protocol,Port,State,Service,Info,\n" + csv
 		b, err := fC.WriteString(csv)
 		fmt.Printf("[*] Wrote %d bytes\n", b)
 		fmt.Printf("[+] CSV file successfully created: %v\n", fileName)
